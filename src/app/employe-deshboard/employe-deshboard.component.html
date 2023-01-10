@@ -1,0 +1,107 @@
+<nav class="navbar bg-primary mt-1">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1" style="color: beige;">EMPLOYE MANAGEMENT</span>
+      
+    <div class="ms">
+
+        <button type="button" (click)=" clickAddEmploye()" class="btn btn-info" style="color: beige;" data-bs-toggle="modal"  data-bs-target="#exampleModal">ADD Employe</button>&nbsp;
+        <button type="button" (click)=" logout()" class="btn btn-danger" style="color: beige;" >Logout</button>
+    </div>
+    </div>
+
+</nav>
+
+
+<div class="card">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>FIRST NAME</th>
+                <th>LAST NAME</th>
+                <th>EMAIL</th>
+                <th>MOBILE</th>
+                <th>SALARY</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of emplist">
+                <td>{{row.id }}</td>
+                <td>{{row.firstname |uppercase}}</td>
+                <td>{{row.lastname | uppercase}}</td>
+                <td>{{row.email}}</td>
+                <td>{{row.mobile}}</td>
+                <td>{{row.salary}}</td>
+                <td>
+                    <button type="button" (click)="onedit(row)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit </button>&nbsp;
+
+                     <button type="button"  class="btn btn-danger" (click)="delete(row)">Delete</button>
+                    
+                    </td>
+              
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+         <form [formGroup]="myform">
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"> <span class="text-danger">*</span>First Name</label>
+                <input type="text" name="firstname" formControlName="firstname" class="form-control" id="exampleFormControlInput1" placeholder="First Name">
+             <span class="text-danger" *ngIf="myform.controls['firstname'].dirty && myform.hasError('required','firstname')">*this fild mandate</span>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"><span class="text-danger">*</span>Last Name</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" 
+                name="lastname" formControlName="lastname" placeholder="Last Name">
+                <span class="text-danger" *ngIf="myform.controls['lastname'].dirty && myform.hasError('required','lastname')">*this fild mandate</span>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"><span class="text-danger">*</span>Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" 
+                name="email" formControlName="email"placeholder="name@example.com">
+                <span class="text-danger" *ngIf="myform.controls['email'].dirty && myform.hasError('required','email')">*this fild mandate</span>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"><span class="text-danger">*</span>Mobile</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" 
+                name="mobile" formControlName="mobile" placeholder="Mobile">
+                <span class="text-danger" *ngIf="myform.controls['mobile'].dirty && myform.hasError('required','mobile')">*this fild mandate</span>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"><span class="text-danger" ngif="!onupdate.valid"></span>Salary</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" 
+                name="salary" formControlName="salary" placeholder="Salary">
+                <span class="text-danger" *ngIf="myform.controls['salary'].dirty && myform.hasError('required','salary')">*this fild mandate</span>
+              </div>
+
+         </form>
+        </div>
+
+        
+        <div class="modal-footer">
+          <button id="cancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button *ngIf="showaddbtn" (click)="post()" [disabled]="! myform.valid" type="button" class="btn btn-primary" >ADD</button>
+          <button *ngIf="shoeupdatebtn" (click)="onupdate()" type="button" class="btn btn-primary" >Update</button>
+
+          
+
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,43 @@
+<div class="card shadow p-3 mb-5 bg-white rounded">
+  <form [formGroup]="loginform" (ngSubmit)="submit()">
+    <h1>Login</h1>
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+      <label class="form-label" for="form2Example1">Email address</label>
+      <input type="email" id="form2Example1" class="form-control" name="email"  formControlName="email"/>
+      <span *ngIf="loginform.controls['email'].dirty && loginform.hasError('required','email')">*Please enter email</span>
+
+    </div>
+  
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      <label class="form-label" for="form2Example2">Password</label>
+      <input type="password" id="form2Example2" class="form-control" name="password"  formControlName="password" />
+      <span *ngIf="loginform.controls['password'].dirty && loginform.hasError('required','password')">*Please enter password</span>
+    </div>
+  
+    <!-- 2 column grid layout for inline styling -->
+    <div class="row mb-4">
+      <div class="col d-flex justify-content-center">
+        <!-- Checkbox -->
+        
+      </div>
+  
+      <div class="col">
+        
+        <!-- Simple link -->
+        <a href="#!">Forgot password?</a>
+      </div>
+    </div>
+  
+    <!-- Submit button -->
+    <button type="submit" [disabled]="!loginform.valid" class="btn btn-primary mani">Login</button>
+  
+    <!-- Register buttons -->
+    <div class="text-center">
+      <p>Not a member? <a routerLink="/signup">Register</a></p>
+      
+     
+    </div>
+  </form>
+</div>
