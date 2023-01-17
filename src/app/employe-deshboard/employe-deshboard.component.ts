@@ -3,6 +3,7 @@ import { ApiService } from './api.service';
 import { FormsModule,FormBuilder,FormGroup,FormControl,Validators } from '@angular/forms';
 import { Employee } from './employee';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -19,7 +20,12 @@ export class EmployeDeshboardComponent {
   shoeupdatebtn !:boolean;
 
 
-  constructor(private api:ApiService,private formbuilder:FormBuilder,private rouer:Router){}
+  constructor(private api:ApiService,
+    private formbuilder:FormBuilder,
+    private rouer:Router,
+    public toster:ToastrService,
+   
+    ){}
 
   ngOnInit(){
 
@@ -118,8 +124,8 @@ onupdate(){
 
     this.api.updateEmploye(this.Employemodelobj,this.Employemodelobj.id).subscribe(
       (res)=>{
+        this.toster.success("Data Added !!", "Data Added successfully !!")
 
-        alert("updated");
         console.log(res);
         let ref=document.getElementById('cancel')
              ref?.click()

@@ -1,11 +1,27 @@
 {
   "posts": [
     {
-      "id": 3,
-      "firstname": "pulikonda",
+      "id": 4,
+      "firstname": "mani",
+      "lastname": "mani",
+      "email": "mani@gmail.com",
+      "mobile": "1234556789",
+      "salary": "100000"
+    },
+    {
+      "id": 5,
+      "firstname": "Apple",
+      "lastname": "Apple",
+      "email": "Apple@123.com",
+      "mobile": "123456789",
+      "salary": "10000"
+    },
+    {
+      "id": 6,
+      "firstname": "janaki.pulikonda@gmail.com",
       "lastname": "manikanta",
-      "email": "pulikonda.manikanta@gmail.com",
-      "mobile": "8688632254",
+      "email": "janaki.pulikonda@gmail.com",
+      "mobile": "06302168569",
       "salary": "52000"
     }
   ],
@@ -33,6 +49,24 @@
       "password": "123",
       "email": "ayyappa.old@gmail.com",
       "id": 4
+    },
+    {
+      "fullname": "1",
+      "password": "1",
+      "email": "1",
+      "id": 5
+    },
+    {
+      "fullname": "1",
+      "password": "1",
+      "email": "1",
+      "id": 6
+    },
+    {
+      "fullname": "mani",
+      "password": "mani",
+      "email": "mani",
+      "id": 7
     }
   ],
   "profile": {

@@ -7,6 +7,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { ToastrModule } from 'ngx-toastr';
+import { MatComponent } from './mat/mat.component';
+
+
 
 
 
@@ -15,13 +19,17 @@ import { SignupComponent } from './signup/signup.component';
     AppComponent,
     EmployeDeshboardComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    MatComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
+
   
   ],
   providers: [],

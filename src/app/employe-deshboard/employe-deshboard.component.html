@@ -3,7 +3,7 @@
       <span class="navbar-brand mb-0 h1" style="color: beige;">EMPLOYE MANAGEMENT</span>
       
     <div class="ms">
-
+      <button type="button" routerLink="/mat" class="btn btn-primary" style="color: beige;" >products</button>&nbsp;
         <button type="button" (click)=" clickAddEmploye()" class="btn btn-info" style="color: beige;" data-bs-toggle="modal"  data-bs-target="#exampleModal">ADD Employe</button>&nbsp;
         <button type="button" (click)=" logout()" class="btn btn-danger" style="color: beige;" >Logout</button>
     </div>
@@ -34,7 +34,7 @@
                 <td>{{row.mobile}}</td>
                 <td>{{row.salary}}</td>
                 <td>
-                    <button type="button" (click)="onedit(row)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit </button>&nbsp;
+                    <button type="button" (click)="onedit(row)"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit </button>&nbsp;
 
                      <button type="button"  class="btn btn-danger" (click)="delete(row)">Delete</button>
                     
